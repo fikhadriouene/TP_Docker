@@ -42,10 +42,8 @@ class Movie :
         
 
         
-    def __str__(self) :
-        
+    def __str__(self) :    
         chaine = "===== {self.id} : {self.titre} ======\n annnée de production : {self.annee_production}\n genre : {self.genre} \n âge limite : {self.age_limite}"
-        
         return chaine
         
         

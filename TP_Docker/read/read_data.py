@@ -32,5 +32,36 @@ def film_par_titre(titre :str) :
             print(m)
             return mov
 
-m = film_par_titre("Inception")
-m.__str__()
+def film_par_age(age_limite :int) :
+    lm = charger_donnees()
+    l_film = []
+    for m in lm :
+        if int(m["age_limite"]) <= age_limite :
+            #mov = Movie(m['id'],m['titre'],m['annee_production'],m['genre'],m['age_limite'])
+            t = [m["id"],m["titre"],m["annee_production"],m["genre"],m["age_limite"]]
+            l_film.append(t)
+
+    return l_film
+
+def film_par_genre(genre :str) :
+    lm = charger_donnees()
+    l_film = []
+    for m in lm :
+        print(i)
+        if m["genre"] == genre :
+            #mov = Movie(m["id"],m["titre"],m["annee_production"],m["genre"],m["age_limite"])
+            t = [m["id"],m["titre"],m["annee_production"],m["genre"],m["age_limite"]]
+            l_film.append(t)
+    return l_film
+
+def film_par_entre_dates(date1 : int, date2 : int) :
+    lm = charger_donnees()
+    l_film = []
+    for m in lm : 
+        if int(m["annee_production"]) >= date1 and int(m["annee_production"]) <= date2  :
+            t = [m["id"],m["titre"],m["annee_production"],m["genre"],m["age_limite"]]
+            l_film.append(t)
+    return l_film
+
+print(film_par_entre_dates(1977,2000))
+
