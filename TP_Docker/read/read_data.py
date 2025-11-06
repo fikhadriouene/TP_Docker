@@ -47,7 +47,6 @@ def film_par_genre(genre :str) :
     lm = charger_donnees()
     l_film = []
     for m in lm :
-        print(i)
         if m["genre"] == genre :
             #mov = Movie(m["id"],m["titre"],m["annee_production"],m["genre"],m["age_limite"])
             t = [m["id"],m["titre"],m["annee_production"],m["genre"],m["age_limite"]]

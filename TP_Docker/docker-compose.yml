@@ -1,0 +1,18 @@
+
+services:
+  read:
+    build:
+      context: ./read
+      dockerfile: Dockerfile
+    volumes:
+      - data_volume:/data
+  write:
+    build:
+      context: ./write
+      dockerfile: Dockerfile
+    volumes:
+      - data_volume:/data
+volumes:
+  data_volume:
+networks : 
+  network:
