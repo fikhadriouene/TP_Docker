@@ -18,3 +18,13 @@ class Movie :
         self.genre = genre
         self.age_limite = age_limite
         
+    def __str__(self) :
+        print()
+        print(f"===== {self.titre} ======")
+        print(f"année de production : {self.titre}")
+        print(f"genre : {self.titre}")
+        print(f"âge limite : {self.titre}")
+        print()
+        
+        
+        

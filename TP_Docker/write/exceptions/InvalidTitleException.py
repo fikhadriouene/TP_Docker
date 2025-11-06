@@ -1,0 +1,2 @@
+class InvalideTitleException(Exception):
+    pass

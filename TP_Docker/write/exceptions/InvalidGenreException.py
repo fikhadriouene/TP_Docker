@@ -1,0 +1,2 @@
+class InvalideGenreException(Exception):
+    pass
