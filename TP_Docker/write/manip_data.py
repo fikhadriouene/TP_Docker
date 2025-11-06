@@ -53,7 +53,7 @@ def afficher_csv() :
         mov = Movie(m["titre"],m["annee_production"],m["genre"],m["age_limite"],m["id"])
         mov.__str__()
 
-def supprimer(lm : list,id : int) :
+def supprimer_dans_liste(lm : list,id : int) :
     for i,m in enumerate(lm) :
         if int(m["id"]) == id :
             del lm[i]
@@ -71,7 +71,7 @@ def modifier_movie(id : int) :
     #m_tmp = Movie(n_titre,n_annee,n_genre,n_age)   
     d_movie = {"id" : id_movie,"titre" : n_titre, "annee_production" : n_annee, "genre" : n_genre, "age_limite" : n_age}
     
-    supprimer(lm,id)
+    supprimer_dans_liste(lm,id)
 
     #print(f"d_movie : {d_movie}")
     
@@ -87,19 +87,18 @@ def modifier_movie(id : int) :
            ecrivain.writeheader()
            ecrivain.writerows(lm)
     
+def supprimer_movie(id : int) :
+    lm = charger_donnees()
+    supprimer_dans_liste(lm,id)
     
+    champs = ["id","titre","annee_production","genre","age_limite"]
+    with open("data/movies.csv", mode="w", newline="", encoding="utf-8") as fichier:
+        ecrivain = csv.DictWriter(fichier,fieldnames=champs)
+        ecrivain.writeheader()
+        ecrivain.writerows(lm)
+    print("suppression réalisée avec succès")
+        
     
-    
-    
-    
-    
-     
-    
-
-    
- 
-    
-
 #lm = charger_donnees()
 
 #print(Movie.last_index())
@@ -110,4 +109,4 @@ def modifier_movie(id : int) :
 #ajouter_film_liste(lm)
 #print(rechercher_movie(lm,22))
 
-modifier_movie(22)
+supprimer_movie(22)
